@@ -38,3 +38,6 @@ func play_move_animation() -> void:
 			animation_player.play(current_animation)
 	else:
 		animation_player.stop()
+
+
+# camera2D limit: -32, -303, 1408, 928/ zoom: 2.5, 2.5
