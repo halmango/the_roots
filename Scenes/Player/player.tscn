@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://w8317ifwgeqf" path="res://Assets/SpriteCutter/Body/Walk/Walk_down1.atlastex" id="1_gk6dx"]
 [ext_resource type="Script" uid="uid://nt1gm4bmxu1b" path="res://Scenes/Player/player.gd" id="1_jgebe"]
+[ext_resource type="PackedScene" uid="uid://blaodxnfxynrw" path="res://Scenes/UI/Loading/loading_screen.tscn" id="2_1xm38"]
 [ext_resource type="Texture2D" uid="uid://c87qlj0mqx6nk" path="res://Assets/SpriteCutter/Body/Walk/Walk_down2.atlastex" id="2_jhyir"]
 [ext_resource type="Texture2D" uid="uid://bmlwftw5f0wyd" path="res://Assets/SpriteCutter/Body/Walk/Walk_down3.atlastex" id="3_74mp2"]
 [ext_resource type="Texture2D" uid="uid://be8erw1lixyxq" path="res://Assets/SpriteCutter/Body/Walk/Walk_down4.atlastex" id="4_oikmp"]
@@ -442,6 +443,7 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=1708450253]
 collision_mask = 2
 script = ExtResource("1_jgebe")
+iris_loading = ExtResource("2_1xm38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274645606]
 visible = false

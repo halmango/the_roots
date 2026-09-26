@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var speed: int = 150
+@export var iris_loading: PackedScene
 
 func _process(delta: float) -> void:
 	var move_vector = get_move_vector()
@@ -12,6 +13,8 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	play_move_animation()
+	
+	play_interaction()
 
 
 func get_move_vector() -> Vector2:
@@ -39,5 +42,10 @@ func play_move_animation() -> void:
 	else:
 		animation_player.stop()
 
+
+func play_interaction() -> void:
+	if Input.is_action_just_pressed("interact"):
+		var loading = iris_loading.instantiate()
+		add_child(loading)
 
 # camera2D limit: -32, -303, 1408, 928/ zoom: 2.5, 2.5
