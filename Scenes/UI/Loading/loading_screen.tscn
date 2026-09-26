@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://blaodxnfxynrw"]
+
+[ext_resource type="Script" uid="uid://6utt4uo0hvi2" path="res://Scenes/UI/Loading/loading_screen.gd" id="1_pok0f"]
+[ext_resource type="Shader" uid="uid://cmdvcbuu5wfcb" path="res://Scenes/UI/Loading/loading_screen.gdshader" id="2_3l576"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ixvy"]
+shader = ExtResource("2_3l576")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/circle_size = 1.05
+shader_parameter/screen_ratio = 1.7778
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=719832692]
+layer = 2
+script = ExtResource("1_pok0f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=373866400]
+material = SubResource("ShaderMaterial_8ixvy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
