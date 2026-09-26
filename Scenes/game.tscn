@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bkmm4lwoc3el4"]
+
+[ext_resource type="PackedScene" uid="uid://du0pegu0dnomb" path="res://Scenes/Background/town_map.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://stwcujr64e8s" path="res://Scenes/Player/player.tscn" id="2_wrm1d"]
+
+[node name="Game" type="Node2D" unique_id=1685862673]
+
+[node name="TownMap" parent="." unique_id=571640526 instance=ExtResource("1_qxrlw")]
+
+[node name="Player" parent="." unique_id=1708450253 instance=ExtResource("2_wrm1d")]
+position = Vector2(177, 232)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1307578737]
+zoom = Vector2(2.5, 2.5)
+limit_left = -32
+limit_top = -303
+limit_right = 1408
+limit_bottom = 928

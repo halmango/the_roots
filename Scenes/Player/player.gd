@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var speed: int = 300
+@export var speed: int = 150
 
 func _process(delta: float) -> void:
 	var move_vector = get_move_vector()
@@ -38,3 +38,6 @@ func play_move_animation() -> void:
 			animation_player.play(current_animation)
 	else:
 		animation_player.stop()
+
+
+# camera2D limit: -32, -303, 1408, 928/ zoom: 2.5, 2.5
