@@ -5,6 +5,15 @@ extends CharacterBody2D
 @export var speed: int = 150
 @export var iris_loading: PackedScene
 
+@export_file("*.tscn") var target_scene: String
+
+
+func _ready() -> void:
+	# 클로벌 스크립트의 player 변수에 자기 자신을 할당하기
+	Global.player = self
+	# 플레이어가 죽거나 씬에서 제거 될 때 Global.player = null 구문으로 메모리 누수나 에러를 방지해야 함
+	# player_reset() 호출하기
+
 func _process(delta: float) -> void:
 	var move_vector = get_move_vector()
 	var direction = move_vector.normalized()
@@ -13,8 +22,8 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	play_move_animation()
-	
-	play_interaction()
+	player_enter_building()
+	player_exit_building()
 
 
 func get_move_vector() -> Vector2:
@@ -43,9 +52,27 @@ func play_move_animation() -> void:
 		animation_player.stop()
 
 
-func play_interaction() -> void:
-	if Input.is_action_just_pressed("interact"):
-		var loading = iris_loading.instantiate()
-		add_child(loading)
+func play_iris_out_loading(target: String) -> void:
+	var loading = iris_loading.instantiate()
+	loading.target_scene = target
+	add_child(loading)
 
-# camera2D limit: -32, -303, 1408, 928/ zoom: 2.5, 2.5
+
+func player_enter_building() -> void:
+	if Global.player_entered_area == "Player Home":
+		if Input.is_action_just_pressed("interact"):
+			target_scene = "res://Scenes/Background/IndoorMap/player_in_home.tscn"
+			Global.player_spawn_point = "PlayerHomeSpawnPoint"
+			play_iris_out_loading(target_scene)
+
+
+func player_exit_building() -> void:
+	if Global.player_entered_area == "Player Home Door Area":
+		if Input.is_action_just_pressed("interact"):
+			Global.player_spawn_point = "PlayerHomeToTownSpawnPoint"
+			target_scene = "res://Scenes/Background/Town/player_in_town.tscn"
+			play_iris_out_loading(target_scene)
+
+
+func player_reset() -> void:
+	Global.player = null
