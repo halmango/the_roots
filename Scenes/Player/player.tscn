@@ -440,7 +440,7 @@ _data = {
 &"walk_up": SubResource("Animation_gs43p")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=1708450253]
+[node name="Player" type="CharacterBody2D" unique_id=1708450253 groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_jgebe")
 iris_loading = ExtResource("2_1xm38")

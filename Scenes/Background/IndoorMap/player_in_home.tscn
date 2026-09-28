@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d3dk4pnanxnt8"]
+
+[ext_resource type="Script" uid="uid://cwukstgdfpm8u" path="res://Scenes/Background/IndoorMap/player_in_home.gd" id="1_25f5b"]
+[ext_resource type="PackedScene" uid="uid://bf0y38jb86v81" path="res://Scenes/Background/IndoorMap/player_home.tscn" id="1_sj77r"]
+[ext_resource type="PackedScene" uid="uid://stwcujr64e8s" path="res://Scenes/Player/player.tscn" id="2_25f5b"]
+
+[node name="PlayerInPlayerHome" type="Node2D" unique_id=37594302]
+script = ExtResource("1_25f5b")
+
+[node name="PlayerHome" parent="." unique_id=1930579821 instance=ExtResource("1_sj77r")]
+collision_layer = 2
+
+[node name="Player" parent="." unique_id=1708450253 instance=ExtResource("2_25f5b")]
+position = Vector2(183, 179)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1716269202]
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 256
+limit_bottom = 256

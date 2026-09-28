@@ -13,6 +13,10 @@ config_version=5
 config/name="the_roots"
 config/features=PackedStringArray("4.8", "GL Compatibility")
 
+[autoload]
+
+Global="*uid://c1xboqdhlq7x4"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -57,7 +61,8 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="Player"
-2d_physics/layer_2="Background"
+2d_physics/layer_2="BackgroundEdge"
+2d_physics/layer_3="Buildings"
 
 [physics]
 
